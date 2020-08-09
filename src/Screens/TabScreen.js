@@ -8,11 +8,7 @@ export default class TabsExample extends Component {
     return (
       <Container>
         <Header hasTabs >
-          
-           
               <Title>News App</Title>
-            
-          
         </Header>
         <Tabs>
           <Tab heading="Tab1">
