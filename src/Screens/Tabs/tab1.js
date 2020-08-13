@@ -1,16 +1,17 @@
 
 import React, { Component } from 'react';
-import {Alert} from 'react-native';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
+import {Alert, ActivityIndicator, Text, View} from 'react-native';
+import { Container, Content, List, Item, } from 'native-base';
+import DataItem from '../../component/dataItem';
 import {getArticles} from '../../service/news';
 
-export default class ListAvatarExample extends Component {
+export default class ListThumbnailExample extends Component {
 
   constructor(props) {
     super(props);
-      this.State = {
+      this.state = {
         isLoading: true,
-        data: null,
+        data: null
       }
   }
 
@@ -20,7 +21,7 @@ export default class ListAvatarExample extends Component {
         isLoading: false,
         data: data,
       })
-    }
+    },
     error => {
       Alert.alert('Error', 'Something went wrong....!');
     }
@@ -29,102 +30,25 @@ export default class ListAvatarExample extends Component {
 
 
   render() {
-    console.log(this.state.data);
+
+    let view = this.state.isLoading ? (
+      <View>
+        <ActivityIndicator animating={this.state.isLoading} />
+        <Text style={{marginTop: 10}}>Please Wait.....</Text>
+      </View>
+    ) : (
+      <List
+            dataArray={this.state.data}
+            renderRow={(item) => {
+              return <DataItem data={item} />
+            }}
+          />
+    )
+
     return (
       <Container>
         <Content>
-          <List>
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-          </List>
+          {view}
         </Content>
       </Container>
     );

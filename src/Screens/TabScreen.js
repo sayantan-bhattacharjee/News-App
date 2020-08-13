@@ -15,10 +15,10 @@ export default class TabsExample extends Component {
             <Tab1 />
           </Tab>
           <Tab heading="Tab2">
-            <Tab2 />
+          <Tab2 />
           </Tab>
-          <Tab heading="Govt">
-            <Tab3 />
+          <Tab heading="Tab3">
+          <Tab3 />
           </Tab>
         </Tabs>
       </Container>

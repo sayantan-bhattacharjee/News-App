@@ -1,4 +1,4 @@
-import { articles_url, country_code, category, _api_key} from '../config/config';
+import { articles_url, country_code, category, _api_key} from '../config/rest_config';
 
 export async function getArticles() {
 
