@@ -12,7 +12,7 @@ export default class TabsExample extends Component {
         </Header>
         <Tabs>
           <Tab heading="Tab1">
-            
+            <Tab1 />
           </Tab>
           <Tab heading="Tab2">
           <Tab2 />

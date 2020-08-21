@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {Alert, ActivityIndicator, Text, View, ScrollView} from 'react-native';
+import {Alert, ActivityIndicator, Text, View } from 'react-native';
 import { Container, Content, List, Item, } from 'native-base';
 import DataItem from '../../component/dataItem';
 import {getArticles} from '../../service/news';
