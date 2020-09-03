@@ -8,16 +8,16 @@ export default class TabsExample extends Component {
     return (
       <Container>
         <Header hasTabs >
-              <Title>News App</Title>
+              <Title style={{ marginTop:12 }}>News App</Title>
         </Header>
         <Tabs>
-          <Tab heading="Tab1">
+          <Tab heading="Business">
             <Tab1 />
           </Tab>
-          <Tab heading="Tab2">
+          <Tab heading="Sports">
           <Tab2 />
           </Tab>
-          <Tab heading="Tab3">
+          <Tab heading="Politics">
           <Tab3 />
           </Tab>
         </Tabs>
