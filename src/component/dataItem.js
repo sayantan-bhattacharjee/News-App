@@ -8,6 +8,11 @@ export default class DataItem extends Component {
         this.data = props.data;
     }
 
+    handlePress = () => {
+        const {url, title} = this.data;
+        this.props.onPress({url, title});
+    }
+
     render() {
         return(
             <ListItem thumbnail>
@@ -23,7 +28,7 @@ export default class DataItem extends Component {
                         </View>        
                 </Body>
                 <Right>
-                    <Button transparent>
+                    <Button transparent onPress={this.handlePress}>
                         <Text>Go</Text>
                     </Button>
                 </Right>
